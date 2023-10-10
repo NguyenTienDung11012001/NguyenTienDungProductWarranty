@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pw_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">pw.sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tax_totals_json']" position="before">
+                    <field name="so_warranty_discount"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='price_subtotal']" position="before">
+                    <field name="product_warranty_discount"/>
+                    <field name="remaining_time"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
