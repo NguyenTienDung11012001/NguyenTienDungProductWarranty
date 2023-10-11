@@ -5,7 +5,7 @@ from datetime import date
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    product_warranty = fields.Char(string='Warranty Code', compute='_compute_warranty_code')
+    product_warranty = fields.Char(string='Warranty Code', compute='_compute_warranty_code', groups='product_warranty.advanced_sale_group_user')
     date_from = fields.Date(string='From', required=True)
     date_to = fields.Date(string='To', required=True)
     remaining_time = fields.Char(string='Remaining', compute='_compute_remaining', store=True)

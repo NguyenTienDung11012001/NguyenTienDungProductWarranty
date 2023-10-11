@@ -24,8 +24,10 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/product_warranty_security.xml',
+        'security/ir.model.access.csv',
         'views/product_template_view.xml',
         'views/sale_order_view.xml',
+        'wizard/update_warranty_view.xml',
     ],
 }

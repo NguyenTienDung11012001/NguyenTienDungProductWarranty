@@ -1,0 +1,12 @@
+<odoo>
+    <record id="sale_category" model="ir.module.category">
+        <field name="name">Warranty Person</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="advanced_sale_group_user" model="res.groups">
+        <field name="name">Advanced User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="category_id" ref="sale_category"/>
+    </record>
+</odoo>

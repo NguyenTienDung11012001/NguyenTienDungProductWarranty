@@ -10,7 +10,6 @@ class SaleOrder(models.Model):
     @api.depends('order_line')
     def _compute_waranty(self):
         for rec in self.order_line:
-            print(rec.product_id.remaining_time)
             start = rec.product_id.date_from
             end = rec.product_id.date_to
             if start and end and start <= date.today() <= end:
