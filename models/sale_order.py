@@ -23,7 +23,6 @@ class SaleOrder(models.Model):
                 rec.so_warranty_discount += i.product_warranty_discount
 
 
-
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 

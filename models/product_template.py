@@ -6,14 +6,14 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     product_warranty = fields.Char(string='Warranty Code', compute='_compute_warranty_code', groups='product_warranty.advanced_sale_group_user')
-    date_from = fields.Date(string='From', required=True)
-    date_to = fields.Date(string='To', required=True)
+    date_from = fields.Date(string='From', required=True, default=date.today())
+    date_to = fields.Date(string='To', required=True, default=date.today())
     remaining_time = fields.Char(string='Remaining', compute='_compute_remaining', store=True)
 
     @api.constrains('date_from', 'date_to')
     def _check_date_from(self):
         for rec in self:
-            if rec.date_from > rec.date_to:
+            if rec.date_from and rec.date_to and rec.date_from > rec.date_to:
                 raise ValidationError(_('Date from cannot greater than date to'))
 
     @api.depends('date_from', 'date_to')
